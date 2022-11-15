@@ -1,6 +1,6 @@
 import { BsSearch } from "react-icons/bs";
 import { useState } from "react";
-const TodoSearch = () => {
+const TodoSearch = ({todoSearch, setTodoSearch}) => {
   const [focusSearch, setFocusSearch] = useState(false);
 
   return (
@@ -17,6 +17,8 @@ const TodoSearch = () => {
         id="todoSearch"
         onFocus={() => {setFocusSearch(true)}}
         onBlur={() => {setFocusSearch(false)}}
+        onChange={(e) => setTodoSearch(e.target.value)}
+        value={todoSearch}
       />
     </div>
   );

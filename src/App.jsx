@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useApp } from "./js/useApp";
 import { TodoSearch } from "./components/TodoSearch";
 import { TodoContainer } from "./components/TodoContainer";
 import { TodoList } from "./components/TodoList";
@@ -7,17 +7,23 @@ import { TodoCounter } from "./components/TodoCounter";
 import { TodoAddNew } from "./components/TodoAddNew";
 import { BsMoon, BsSun } from "react-icons/bs";
 
+
+
 const App = () => {
-  const tasks = [
-    { description: "lavar los platos", completed: false },
-    { description: "pasear al perro", completed: false },
-    { description: "comprar comida", completed: true },
-    { description: "ver la serie", completed: false },
-    { description: "dormir", completed: true },
-    // { description: "ver la serie arcane", completed: false },
-    // { description: "cepillarse", completed: false },
-  ];
-  const [darkMode, setDarkMode] = useState(false);
+  const {
+    darkMode,
+    setDarkMode,
+    todoSearch,
+    setTodoSearch,
+    filteredTodos,
+    completeTodo,
+    deleteTodo,
+    totalTodos,
+    completedTodos,
+    loading,
+    error,
+  } = useApp();
+
   return (
     <main className={darkMode ? "dark" : "block"}>
       <button
@@ -32,18 +38,26 @@ const App = () => {
         <h1 className="w-full h-auto text-2xl font-bold grid place-items-center dark:text-zinc-200">
           To Do List
         </h1>
-        <TodoSearch />
+        <TodoSearch todoSearch={todoSearch} setTodoSearch={setTodoSearch} />
         <TodoContainer>
           <TodoList>
-            {tasks.map(({ description, completed }) => (
+          {error && <p>Hubo un error</p>}
+          {loading && <p>Cargando......</p>}
+          {(!loading && !filteredTodos.length) && <p>Escribe tu primer todo</p>}
+            {filteredTodos.map(({ description, completed }) => (
               <TodoItem
                 description={description}
                 completed={completed}
                 key={description}
+                completeTodo={completeTodo}
+                deleteTodo={deleteTodo}
               />
             ))}
           </TodoList>
-          <TodoCounter />
+          <TodoCounter
+            totalTodos={totalTodos}
+            completedTodos={completedTodos}
+          />
           <TodoAddNew />
         </TodoContainer>
       </section>
