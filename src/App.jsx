@@ -6,6 +6,8 @@ import { TodoItem } from "./components/TodoItem";
 import { TodoCounter } from "./components/TodoCounter";
 import { TodoAddNew } from "./components/TodoAddNew";
 import { BsMoon, BsSun } from "react-icons/bs";
+import { Modal } from "./components/Modal";
+import { CreateTodoForm } from "./components/CreateTodoForm";
 
 
 
@@ -18,14 +20,17 @@ const App = () => {
     filteredTodos,
     completeTodo,
     deleteTodo,
+    createTodo,
     totalTodos,
     completedTodos,
     loading,
     error,
+    showModal,
+    setShowModal,
   } = useApp();
 
   return (
-    <main className={darkMode ? "dark" : "block"}>
+    <main className={`absolute ${ darkMode && "dark"}`}>
       <button
         className="fixed top-mobileRangeSpacing left-mobileRangeSpacing px-mobileRangeSpacing py-3 w-auto h-auto text-mobileRange text-slate-500 rounded-full shadow-md z-10 hover:bg-zinc-200 active:bg-zinc-300 dark:shadow-zinc-500 dark:text-zinc-200 dark:hover:bg-zinc-900/60 dark:active:bg-zinc-900"
         onClick={() => {
@@ -41,9 +46,9 @@ const App = () => {
         <TodoSearch todoSearch={todoSearch} setTodoSearch={setTodoSearch} />
         <TodoContainer>
           <TodoList>
-          {error && <p>Hubo un error</p>}
-          {loading && <p>Cargando......</p>}
-          {(!loading && !filteredTodos.length) && <p>Escribe tu primer todo</p>}
+          {error && <p className="dark:text-white">Hubo un error</p>}
+          {loading && <p className="dark:text-white">Cargando......</p>}
+          {(!loading && !filteredTodos.length) && <p className="dark:text-white">Escribe tu primer todo</p>}
             {filteredTodos.map(({ description, completed }) => (
               <TodoItem
                 description={description}
@@ -58,7 +63,10 @@ const App = () => {
             totalTodos={totalTodos}
             completedTodos={completedTodos}
           />
-          <TodoAddNew />
+          <TodoAddNew setShowModal={setShowModal}/>
+          <Modal showModal={showModal} darkMode={darkMode}>
+            <CreateTodoForm setShowModal={setShowModal} createTodo={createTodo}/>
+          </Modal>
         </TodoContainer>
       </section>
     </main>

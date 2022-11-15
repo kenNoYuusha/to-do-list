@@ -12,7 +12,7 @@ const useApp = () => {
   const completedTodos = todos.filter((todo) => !!todo.completed).length;
   let filteredTodos;
   const [darkMode, setDarkMode] = useState(true);
-
+  const [showModal, setShowModal] = useState(false);
   const [todoSearch, setTodoSearch] = useState("");
 
   if (todoSearch.length > 0) {
@@ -52,6 +52,14 @@ const useApp = () => {
     // setTasks((tasks) => tasks.filter((task) => task.description !== taskName));
   };
 
+  const createTodo = (todoName) => {
+    const newListTodos = [...todos, {
+      description: todoName,
+      completed: false,
+    }];
+    saveTodos(newListTodos);
+  }
+
   return {
     darkMode,
     setDarkMode,
@@ -60,10 +68,13 @@ const useApp = () => {
     filteredTodos,
     completeTodo,
     deleteTodo,
+    createTodo,
     totalTodos,
     completedTodos,
     loading,
     error,
+    showModal,
+    setShowModal,
   };
 };
 export { useApp };
