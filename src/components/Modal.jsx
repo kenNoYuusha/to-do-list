@@ -1,12 +1,10 @@
 import { createPortal } from "react-dom";
 
-const Modal = ({ children, showModal, darkMode }) => {
+const Modal = ({ children, darkMode }) => {
   return createPortal(
     <div
       id="teletransportacion"
-      className={`${darkMode && "dark"} ${
-        showModal ? "grid" : "hidden"
-      } absolute z-10 w-full h-screen bg-slate-700/80 place-items-center`}
+      className={`${darkMode && "dark"} absolute z-10 w-full h-screen grid place-items-center bg-slate-700/80 `}
     >
       {children}
     </div>,

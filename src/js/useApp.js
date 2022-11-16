@@ -11,7 +11,7 @@ const useApp = () => {
   const totalTodos = todos.length;
   const completedTodos = todos.filter((todo) => !!todo.completed).length;
   let filteredTodos;
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [todoSearch, setTodoSearch] = useState("");
 

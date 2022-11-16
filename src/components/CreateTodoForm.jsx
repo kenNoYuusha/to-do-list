@@ -15,7 +15,6 @@ const CreateTodoForm = ({ setShowModal, createTodo }) => {
     e.preventDefault();
     if(newTodo.length >= 1){
       createTodo(newTodo);
-      setNewTodo("");
       clickEventHandler();
     }
   };
@@ -39,6 +38,7 @@ const CreateTodoForm = ({ setShowModal, createTodo }) => {
         id="newTodo"
         className="w-full px-mobileRangeSpacing py-2 rounded-md bg-white dark:bg-zinc-700 shadow-sm focus:shadow-md outline-none dark:focus:shadow-sm dark:focus:shadow-slate-500"
         onChange={changeEventHandler}
+        autoFocus
       />
       <div className="w-full flex flex-row justify-around items-center">
         <button

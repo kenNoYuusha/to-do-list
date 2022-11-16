@@ -26,7 +26,7 @@ const useLocalStorage = (itemName, initialValue) => {
 
   const saveItem = (newArray) => {
     setLoading(true);
-    setTimeout(() => {
+    // setTimeout(() => {
       try {
         const newArrayStringified = JSON.stringify(newArray);
         localStorage.setItem(itemName, newArrayStringified);
@@ -35,7 +35,7 @@ const useLocalStorage = (itemName, initialValue) => {
       } catch (error) {
         setError(error);
       }
-    }, 0);
+    // }, 0);
   };
 
   return {
