@@ -1,10 +1,10 @@
 import { BsSearch } from "react-icons/bs";
 import { useState } from "react";
-const TodoSearch = ({todoSearch, setTodoSearch}) => {
+const TodoSearch = ({todoSearch, setTodoSearch, loading}) => {
   const [focusSearch, setFocusSearch] = useState(false);
 
   return (
-    <div className={`w-full h-auto py-3 px-mobileRangeSpacing flex flex-row gap-x-mobileRangeSpacing text-mobileRange bg-white rounded-full transition-shadow ${focusSearch ? "shadow-md" : "shadow-sm dark:shadow-none transition-shadow"} dark:bg-zinc-700 dark:shadow-slate-500`}>
+    <div className={`w-full h-auto py-3 px-mobileRangeSpacing flex flex-row gap-x-mobileRangeSpacing text-mobileRange bg-white rounded-full transition-shadow ${focusSearch ? "shadow-md" : "shadow-sm dark:shadow-none transition-shadow"} dark:bg-zinc-700 dark:shadow-slate-500 ${loading && "opacity-40"}`}>
       <label
         className="grid place-items-center text-slate-400 hover:text-slate-500 dark:text-slate-300 dark:hover:text-slate-100"
         htmlFor="todoSearch"
@@ -19,6 +19,7 @@ const TodoSearch = ({todoSearch, setTodoSearch}) => {
         onBlur={() => {setFocusSearch(false)}}
         onChange={(e) => setTodoSearch(e.target.value)}
         value={todoSearch}
+        disabled={loading}
       />
     </div>
   );
