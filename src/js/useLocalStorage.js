@@ -4,6 +4,7 @@ const useLocalStorage = (itemName, initialValue) => {
   const [item, setItem] = useState(initialValue);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [sincrnize, setSincronize] = useState(true);
   useEffect(() => {
     setTimeout(() => {
       try {
@@ -23,6 +24,19 @@ const useLocalStorage = (itemName, initialValue) => {
       }
     }, 3000);
   }, []);
+
+  useEffect(() => {
+    window.addEventListener('storage', (e) => {
+
+      if(e.key == 'TODOS_V1'){
+        console.log(e.key, JSON.parse(e.oldValue), JSON.parse(e.newValue));
+        
+      }
+      else {
+        console.log("cambio pero no me afecta");
+      }
+    })
+  }, [])
 
   const saveItem = (newArray) => {
     setLoading(true);

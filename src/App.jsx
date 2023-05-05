@@ -31,7 +31,7 @@ const App = () => {
     error,
     showModal,
     setShowModal,
-  } = useApp();
+  } = useApp(); 
 
   return (
     <main className={`absolute ${darkMode && "dark"} w-full`}>
