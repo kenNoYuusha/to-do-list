@@ -6,8 +6,6 @@ import { TodoList } from "./components/TodoList";
 import { TodoItem } from "./components/TodoItem";
 import { TodoCounter } from "./components/TodoCounter";
 import { TodoAddNew } from "./components/TodoAddNew";
-import { ButtonDark } from "./components/ButtonDark";
-import { BsMoon, BsSun } from "react-icons/bs";
 import { Modal } from "./components/Modal";
 import { CreateTodoForm } from "./components/CreateTodoForm";
 import { TodoError } from "./components/TodoError";
@@ -34,12 +32,10 @@ const App = () => {
   } = useApp(); 
 
   return (
-    <main className={`absolute ${darkMode && "dark"} w-full`}>
-      <ButtonDark setDarkMode={setDarkMode}>
-        {!darkMode ? <BsSun /> : <BsMoon />}
-      </ButtonDark>
+    <main className={`w-full max-w-screen-md mx-auto text-md bg-sky-500 ${darkMode ? "dark" : ""}`}>
+      
 
-      <TodoSection>
+      <TodoSection darkMode={darkMode} setDarkMode={setDarkMode}>
         <TodoSearch
           todoSearch={todoSearch}
           setTodoSearch={setTodoSearch}

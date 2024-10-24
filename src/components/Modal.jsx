@@ -4,7 +4,7 @@ const Modal = ({ children, darkMode }) => {
   return createPortal(
     <div
       id="teletransportacion"
-      className={`${darkMode && "dark"} absolute z-10 w-full h-screen grid place-items-center bg-slate-700/80 `}
+      className={`${darkMode && "dark"} fixed top-0 right-0 bottom-0 left-0 text-md p-2 grid place-items-center bg-slate-700/80 `}
     >
       {children}
     </div>,

@@ -21,12 +21,12 @@ const CreateTodoForm = ({ setShowModal, createTodo }) => {
 
   return (
     <form
-      className="relative justify-center items-center flex flex-col gap-y-mobileRangeSpacing px-mobileRangeSpacing py-12 border-2 border-white rounded-xl bg-zinc-100 dark:bg-zinc-800 text-black dark:text-white text-mobileRange "
+      className="w-full max-w-screen-xs flex flex-col items-center gap-4 p-4 rounded-xl bg-zinc-100 dark:bg-zinc-800 text-black dark:text-white"
       onSubmit={submitEventHandler}
     >
       <button
         type="button"
-        className="absolute top-mobileRangeSpacing right-mobileRangeSpacing"
+        className="self-end hover:cursor-pointer text-lg"
         onClick={clickEventHandler}
       >
         <BsX />
@@ -36,21 +36,21 @@ const CreateTodoForm = ({ setShowModal, createTodo }) => {
         type="text"
         value={newTodo}
         id="newTodo"
-        className="w-full px-mobileRangeSpacing py-2 rounded-md bg-white dark:bg-zinc-700 shadow-sm focus:shadow-md outline-none dark:focus:shadow-sm dark:focus:shadow-slate-500"
+        className="w-full px-3 py-2 rounded-md bg-white dark:bg-zinc-700 shadow-sm focus:shadow-md outline-none dark:focus:shadow-sm dark:focus:shadow-slate-500"
         onChange={changeEventHandler}
         autoFocus
       />
-      <div className="w-full flex flex-row justify-around items-center">
+      <div className="w-full flex flex-row gap-4 justify-center items-center">
         <button
           type="button"
-          className="px-mobileRangeSpacing py-2 border-2 border-zinc-800 dark:border-white rounded-md"
+          className="px-4 py-2 border-2 border-zinc-800 dark:border-white rounded-md"
           onClick={clickEventHandler}
         >
           Cancelar
         </button>
         <button
           type="submit"
-          className="px-mobileRangeSpacing py-2 border-2 bg-yellow-200 dark:bg-amber-300 text-black border-yellow-200 dark:border-amber-300 rounded-md"
+          className="px-4 py-2 border-2 bg-yellow-200 dark:bg-amber-300 text-black border-yellow-200 dark:border-amber-300 rounded-md"
         >
           Agregar
         </button>

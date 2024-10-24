@@ -13,7 +13,7 @@ const TodoList = ({
 }) => {
   const renderFunc = render || children;
   return (
-    <ul className="w-full h-5/6 flex flex-col items-center justify-start  p-mobileRangeSpacing overflow-y-auto bg-white/50 rounded-lg dark:bg-zinc-700/70">
+    <ul className="w-full h-5/6 flex flex-col items-center justify-start p-2 overflow-auto bg-white/50 rounded-lg dark:bg-zinc-700/70">
       {error && onError()}
       {!error && loading && onLoading()}
       {!error && !loading && !totalTodos && onEmptyTodos()}
