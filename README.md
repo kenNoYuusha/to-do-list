@@ -6,16 +6,22 @@ Este proyecto es una aplicación de tareas (To-Do) construida en **React** con e
 ## Vista previa
 
 Boton para agregar nuevas tareas
-![Boton para agregar nuevas tareas](/preview/lista-vacia.webp)
+<br>
+<img src="https://raw.githubusercontent.com/kenNoYuusha/to-do-list/refs/heads/main/public/preview/lista-vacia.webp" alt="Boton para agregar nuevas tareas">
 
 Formulario para ingreso de las tareas
-![Formulario para ingreso de las tareas](/preview/primer-todo.webp)
+<br>
+<img src="https://raw.githubusercontent.com/kenNoYuusha/to-do-list/refs/heads/main/public/preview/primer-todo.webp" alt="Formulario para ingreso de las tareas">
 
 Cuenta con una barra de busqueda cuando se tenga una lista larga
-![Cuenta con una barra de busqueda cuando se tenga una lista larga](/preview/barra-busqueda.webp)
+<br>
+<img src="https://raw.githubusercontent.com/kenNoYuusha/to-do-list/refs/heads/main/public/preview/barra-busqueda.webp" alt="Cuenta con una barra de busqueda cuando se tenga una lista larga">
+![]()
 
 Modo dark al alcance
-![Modo dark al alcance](/preview/modo-dark.webp)
+<br>
+<img src="https://raw.githubusercontent.com/kenNoYuusha/to-do-list/refs/heads/main/public/preview/modo-dark.webp" alt="Modo dark al alcance">
+
 ## Características
 
 - **Agregar tareas**: Añade tareas con unos simples pasos.

@@ -9,7 +9,7 @@ const TodoSearch = ({todoSearch, setTodoSearch, loading}) => {
         className="grid place-items-center text-slate-400 hover:text-slate-500 dark:text-slate-300 dark:hover:text-slate-100"
         htmlFor="todoSearch"
       >
-        <BsSearch />
+        <BsSearch title="Filter to-do"/>
       </label>
       <input
         className="pl-4 basis-40 grow outline-none border-l border-slate-300 bg-transparent dark:border-zinc-100 dark:text-white"
