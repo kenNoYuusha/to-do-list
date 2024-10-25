@@ -1,13 +1,6 @@
 const TodoLoading = () => {
   return (
-    <>
-      <TodoLoadingItem/>
-      <TodoLoadingItem/>
-      <TodoLoadingItem/>
-      <TodoLoadingItem/>
-      <TodoLoadingItem/>
-      <TodoLoadingItem/>
-    </>
+    <p>Cargando...</p>
   );
 };
 
