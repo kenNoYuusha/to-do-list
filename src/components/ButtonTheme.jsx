@@ -5,7 +5,7 @@ const ButtonTheme = () => {
   const [theme, toogleTheme] = useTheme();
   return (
     <button
-      className="px-4 py-3 rounded-full shadow-md dark:shadow-zinc-50 dark:shadow-sm"
+      className="self-end px-4 py-3 rounded-full shadow-sm dark:shadow-zinc-800"
       aria-label="Cambiar modo dark/light"
       onClick={toogleTheme}
     >
