@@ -5,8 +5,13 @@ const TodoSearch = ({ todoSearch, setTodoSearch, loading }) => {
 
   return (
     <div
-      className={`w-full max-w-xs py-3 px-4 md:self-end flex flex-row gap-3 rounded-full dark:shadow-zinc-800 
-        ${focusSearch ? "shadow-sm" : "shadow-none"} 
+      className={`w-full py-2 px-3 flex flex-row gap-3 rounded-md
+        bg-zinc-50 dark:bg-zinc-900 dark:shadow-zinc-50
+        ${
+          focusSearch
+            ? "shadow-lg dark:shadow-sm"
+            : "shadow-md dark:shadow-none"
+        } 
         ${loading ? "opacity-40" : ""}`}
     >
       <label

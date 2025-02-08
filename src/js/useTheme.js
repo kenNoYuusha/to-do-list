@@ -20,7 +20,7 @@ export const useTheme = () => {
   }, []);
 
   const applyTheme = (theme) => {
-    const layout = document.querySelector("main");
+    const layout = document.querySelector("body");
     if (theme === "dark") {
       layout.classList.add("dark");
     } else if (theme === "ligth") {
