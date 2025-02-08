@@ -1,5 +1,6 @@
-import { useState} from "react";
+import { useState } from "react";
 import { useLocalStorage } from "./useLocalStorage";
+import { useScreenHeight } from "./useScreenHeight";
 
 const useApp = () => {
   const {
@@ -8,6 +9,7 @@ const useApp = () => {
     loading,
     error,
   } = useLocalStorage("TODOS_V1", []);
+  useScreenHeight();
   const totalTodos = todos.length;
   const completedTodos = todos.filter((todo) => !!todo.completed).length;
   let filteredTodos;
@@ -53,12 +55,15 @@ const useApp = () => {
   };
 
   const createTodo = (todoName) => {
-    const newListTodos = [...todos, {
-      description: todoName,
-      completed: false,
-    }];
+    const newListTodos = [
+      ...todos,
+      {
+        description: todoName,
+        completed: false,
+      },
+    ];
     saveTodos(newListTodos);
-  }
+  };
 
   return {
     darkMode,

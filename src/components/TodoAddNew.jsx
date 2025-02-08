@@ -1,11 +1,15 @@
 import { BsPlus } from "react-icons/bs";
-const TodoAddNew = ({setShowModal}) => {
+const TodoAddNew = ({ setShowModal }) => {
   return (
-    <button className="absolute right-2 bottom-10 p-2 text-3xl grid bg-amber-400 hover:bg-amber-500 text-white rounded-full dark:bg-zinc-800 dark:hover:bg-zinc-900/60 dark:active:bg-zinc-900 dark:shadow-zinc-500 dark:shadow-md"
-      onClick={() => { setShowModal(true) }}
+    <button
+      className="absolute top-0 left-0 sm:top-4 sm:left-4 p-2 flex items-center gap-1 rounded-xl bg-gradient-to-br from-orange-200 via-orange-100 to-orange-200"
+      onClick={() => {
+        setShowModal(true);
+      }}
       aria-label="Agregar nueva tarea"
     >
       <BsPlus />
+      Agregar Tarea
     </button>
   );
 };

@@ -1,4 +1,5 @@
 import { useApp } from "./js/useApp";
+import { Layout } from "./Layout";
 import { TodoSection } from "./components/TodoSection";
 import { TodoSearch } from "./components/TodoSearch";
 import { TodoContainer } from "./components/TodoContainer";
@@ -15,8 +16,6 @@ import { TodoEmptySearch } from "./components/TodoEmptySearch";
 
 const App = () => {
   const {
-    darkMode,
-    setDarkMode,
     todoSearch,
     setTodoSearch,
     filteredTodos,
@@ -29,13 +28,12 @@ const App = () => {
     error,
     showModal,
     setShowModal,
-  } = useApp(); 
+  } = useApp();
 
   return (
-    <main className={`w-full max-w-screen-md mx-auto text-md bg-sky-500 ${darkMode ? "dark" : ""}`}>
-      
-
-      <TodoSection darkMode={darkMode} setDarkMode={setDarkMode}>
+    <Layout>
+      <TodoSection>
+        <TodoAddNew setShowModal={setShowModal} />
         <TodoSearch
           todoSearch={todoSearch}
           setTodoSearch={setTodoSearch}
@@ -81,10 +79,9 @@ const App = () => {
             completedTodos={completedTodos}
             loading={loading}
           />
-    
-          <TodoAddNew setShowModal={setShowModal} />
+
           {showModal && (
-            <Modal darkMode={darkMode}>
+            <Modal>
               <CreateTodoForm
                 setShowModal={setShowModal}
                 createTodo={createTodo}
@@ -93,7 +90,7 @@ const App = () => {
           )}
         </TodoContainer>
       </TodoSection>
-    </main>
+    </Layout>
   );
 };
 
