@@ -48,13 +48,13 @@ const CreateTodoForm = ({ setShowModal, createTodo }) => {
           className="px-4 py-2 border-2 border-zinc-900 dark:border-zinc-50 rounded-md"
           onClick={clickEventHandler}
         >
-          Cancelar
+          Cancel
         </button>
         <button
           type="submit"
           className="px-4 py-2 border-2 bg-yellow-200 dark:bg-amber-300 text-black border-yellow-200 dark:border-amber-300 rounded-md"
         >
-          Agregar
+          Add
         </button>
       </div>
     </form>
