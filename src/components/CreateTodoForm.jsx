@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BsX } from "react-icons/bs";
+import { BsXLg } from "react-icons/bs";
 const CreateTodoForm = ({ setShowModal, createTodo }) => {
   const [newTodo, setNewTodo] = useState("");
 
@@ -8,12 +8,14 @@ const CreateTodoForm = ({ setShowModal, createTodo }) => {
   };
 
   const changeEventHandler = (e) => {
-    setNewTodo(e.target.value);
+    if (newTodo.length <= 120) {
+      setNewTodo(e.target.value);
+    }
   };
 
   const submitEventHandler = (e) => {
     e.preventDefault();
-    if(newTodo.length >= 1){
+    if (newTodo.trim().length >= 1) {
       createTodo(newTodo);
       clickEventHandler();
     }
@@ -21,7 +23,7 @@ const CreateTodoForm = ({ setShowModal, createTodo }) => {
 
   return (
     <form
-      className="w-full max-w-screen-xs flex flex-col items-center gap-4 p-4 rounded-xl bg-zinc-100 dark:bg-zinc-800 text-black dark:text-white"
+      className="w-full max-w-screen-xs flex flex-col items-center gap-4 p-4 rounded-xl bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-50"
       onSubmit={submitEventHandler}
     >
       <button
@@ -29,21 +31,21 @@ const CreateTodoForm = ({ setShowModal, createTodo }) => {
         className="self-end hover:cursor-pointer text-lg"
         onClick={clickEventHandler}
       >
-        <BsX />
+        <BsXLg />
       </button>
-      <label htmlFor="newTodo">Nuevo To do</label>
+      <label htmlFor="newTodo">New Task</label>
       <input
         type="text"
         value={newTodo}
         id="newTodo"
-        className="w-full px-3 py-2 rounded-md bg-white dark:bg-zinc-700 shadow-sm focus:shadow-md outline-none dark:focus:shadow-sm dark:focus:shadow-slate-500"
+        className="w-full px-3 py-2 rounded-md bg-white dark:bg-zinc-700 shadow-sm focus:shadow-md outline-none"
         onChange={changeEventHandler}
         autoFocus
       />
       <div className="w-full flex flex-row gap-4 justify-center items-center">
         <button
           type="button"
-          className="px-4 py-2 border-2 border-zinc-800 dark:border-white rounded-md"
+          className="px-4 py-2 border-2 border-zinc-900 dark:border-zinc-50 rounded-md"
           onClick={clickEventHandler}
         >
           Cancelar

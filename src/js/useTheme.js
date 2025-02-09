@@ -21,15 +21,20 @@ export const useTheme = () => {
 
   const applyTheme = (theme) => {
     const layout = document.querySelector("main");
+    const modal = document.getElementById("modal");
     if (theme === "dark") {
       layout.classList.add("dark");
+      modal.classList.add("dark");
     } else if (theme === "ligth") {
       layout.classList.remove("dark");
+      modal.classList.remove("dark");
     } else {
       if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
         layout.classList.add("dark");
+        modal.classList.add("dark");
       } else {
         layout.classList.remove("dark");
+        modal.classList.remove("dark");
       }
     }
   };
