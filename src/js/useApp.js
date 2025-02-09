@@ -65,11 +65,17 @@ const useApp = () => {
     saveTodos(newListTodos);
   };
 
+  const updateTodoSearch = (query) => {
+    if (query.length <= 100) {
+      setTodoSearch(query);
+    }
+  };
+
   return {
     darkMode,
     setDarkMode,
     todoSearch,
-    setTodoSearch,
+    updateTodoSearch,
     filteredTodos,
     completeTodo,
     deleteTodo,

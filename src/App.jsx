@@ -17,7 +17,7 @@ import { TodoEmptySearch } from "./components/TodoEmptySearch";
 const App = () => {
   const {
     todoSearch,
-    setTodoSearch,
+    updateTodoSearch,
     filteredTodos,
     completeTodo,
     deleteTodo,
@@ -32,64 +32,66 @@ const App = () => {
 
   return (
     <Layout>
-      <TodoSection>
-        <TodoAddNew setShowModal={setShowModal} />
-        <TodoSearch
+      <TodoSection
+        todoAddNew={<TodoAddNew setShowModal={setShowModal} />}
+        todoSearch={
+          <TodoSearch
+            todoSearch={todoSearch}
+            setTodoSearch={updateTodoSearch}
+            loading={loading}
+            totalTodos={totalTodos}
+          />
+        }
+      />
+      <TodoContainer>
+        <TodoList
+          error={error}
+          loading={loading}
+          filteredTodos={filteredTodos}
+          totalTodos={totalTodos}
           todoSearch={todoSearch}
-          setTodoSearch={setTodoSearch}
+          onError={() => <TodoError />}
+          onLoading={() => <TodoLoading />}
+          onEmptyTodos={() => <TodoEmptyList />}
+          onEmptySearch={(searchText) => (
+            <TodoEmptySearch searchText={searchText} />
+          )}
+          render={({ description, completed }) => (
+            <TodoItem
+              description={description}
+              completed={completed}
+              key={description}
+              completeTodo={completeTodo}
+              deleteTodo={deleteTodo}
+            />
+          )}
+        >
+          {({ description, completed }) => (
+            <TodoItem
+              description={description}
+              completed={completed}
+              key={description}
+              completeTodo={completeTodo}
+              deleteTodo={deleteTodo}
+            />
+          )}
+        </TodoList>
+
+        <TodoCounter
+          totalTodos={totalTodos}
+          completedTodos={completedTodos}
           loading={loading}
         />
 
-        <TodoContainer>
-          <TodoList
-            error={error}
-            loading={loading}
-            filteredTodos={filteredTodos}
-            totalTodos={totalTodos}
-            todoSearch={todoSearch}
-            onError={() => <TodoError />}
-            onLoading={() => <TodoLoading />}
-            onEmptyTodos={() => <TodoEmptyList />}
-            onEmptySearch={(searchText) => (
-              <TodoEmptySearch searchText={searchText} />
-            )}
-            render={({ description, completed }) => (
-              <TodoItem
-                description={description}
-                completed={completed}
-                key={description}
-                completeTodo={completeTodo}
-                deleteTodo={deleteTodo}
-              />
-            )}
-          >
-            {({ description, completed }) => (
-              <TodoItem
-                description={description}
-                completed={completed}
-                key={description}
-                completeTodo={completeTodo}
-                deleteTodo={deleteTodo}
-              />
-            )}
-          </TodoList>
-
-          <TodoCounter
-            totalTodos={totalTodos}
-            completedTodos={completedTodos}
-            loading={loading}
-          />
-
-          {showModal && (
-            <Modal>
-              <CreateTodoForm
-                setShowModal={setShowModal}
-                createTodo={createTodo}
-              />
-            </Modal>
-          )}
-        </TodoContainer>
-      </TodoSection>
+        {showModal && (
+          <Modal>
+            <CreateTodoForm
+              setShowModal={setShowModal}
+              createTodo={createTodo}
+            />
+          </Modal>
+        )}
+      </TodoContainer>
     </Layout>
   );
 };

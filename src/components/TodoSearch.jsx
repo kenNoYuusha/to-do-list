@@ -1,6 +1,6 @@
 import { BsSearch } from "react-icons/bs";
 import { useState } from "react";
-const TodoSearch = ({ todoSearch, setTodoSearch, loading }) => {
+const TodoSearch = ({ todoSearch, setTodoSearch, loading, totalTodos }) => {
   const [focusSearch, setFocusSearch] = useState(false);
 
   return (
@@ -18,7 +18,7 @@ const TodoSearch = ({ todoSearch, setTodoSearch, loading }) => {
       <input
         className="pl-3 w-full outline-none border-l bg-transparent"
         type="search"
-        placeholder="Lavar los trastes..."
+        placeholder="Work out..."
         id="todoSearch"
         onFocus={() => {
           setFocusSearch(true);
@@ -28,7 +28,7 @@ const TodoSearch = ({ todoSearch, setTodoSearch, loading }) => {
         }}
         onChange={(e) => setTodoSearch(e.target.value)}
         value={todoSearch}
-        disabled={loading}
+        disabled={loading || totalTodos === 0}
       />
     </div>
   );
