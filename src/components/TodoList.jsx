@@ -15,7 +15,7 @@ const TodoList = ({
 
   if (!error && !loading && !!filteredTodos.length) {
     return (
-      <ul className="w-full h-5/6 flex flex-row flex-wrap p-2 content-start gap-2 overflow-y-scroll bg-zinc-500/50 rounded-lg dark:bg-zinc-900/70">
+      <ul className="w-full h-5/6 flex flex-row flex-wrap p-2 content-start gap-2 overflow-y-scroll bg-zinc-500/50 rounded-lg dark:bg-zinc-900/70 no-scrollbar">
         {filteredTodos.map(renderFunc)}
       </ul>
     );
